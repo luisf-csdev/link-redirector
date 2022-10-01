@@ -147,19 +147,42 @@
 // app.listen(port, () => console.log(`Example app listening on port ${port}`));
 
 
-// CREATING A DOCUMENT BY FORMS 
+//CREATING A DOCUMENT BY FORMS 
+// const express = require('express');
+// const app = express();
+// const port = 3000;
+// const mongoose = require('mongoose');
+// const linkRoute = require('./routes/linkRoute');
+
+// mongoose.connect('mongodb://localhost/link')
+
+// let db = mongoose.connection;
+
+// db.on('error', () => console.log('an error occurred'));
+// db.once('open', () => console.log('database loaded'));
+
+// app.use('/', linkRoute);
+
+// app.listen(port, () => console.log(`Example app listening on port ${port}`));
+
+
+//INTEGRATING WITH FRONTEND
 const express = require('express');
 const app = express();
 const port = 3000;
 const mongoose = require('mongoose');
+const path = require('path');
 const linkRoute = require('./routes/linkRoute');
 
-mongoose.connect('mongodb://localhost/link')
+mongoose.connect('mongodb://localhost/link');
 
 let db = mongoose.connection;
 
 db.on('error', () => console.log('an error occurred'));
 db.once('open', () => console.log('database loaded'));
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'templates'));
 
 app.use('/', linkRoute);
 

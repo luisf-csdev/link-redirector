@@ -31,8 +31,8 @@ const linkController = require('../controllers/linkController')
 
 router.get('/:title', linkController.redirect)
 
-router.get('/', (req, res) => res.render('index'));
+router.get('/', (req, res) => res.render('index', { error: false, body: {} }));
 
-router.post('/', express.urlencoded({ extended: true}), linkController.addLink);
+router.post('/', express.urlencoded({ extended: true }), linkController.addLink);
 
 module.exports = router;

@@ -9,12 +9,17 @@
 </head>
 
 <body>
-
+    <h1>Links</h1>
+    <a href="/add">Add Link</a>
     <%for(let i = 0; i < links.length; i++) {%>
         <div id="<%=links[i]._id%>">
-            <h2><%=links[i].title%></h2>
-            <div><%=links[i].description%></div>
-            <div><%=links[i].url%></div>
+            <form method="POST" action="/?_method=DELETE">
+                <h2><%=links[i].title%></h2>
+                <div><%=links[i].description%></div>
+                <div><%=links[i].url%></div>
+                <input name="id" value="<%=links[i]._id%>" hidden>
+                <button type="submit">Delete</button>
+            </form>
         </div>
     <%}%>
 

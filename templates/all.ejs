@@ -19,6 +19,7 @@
                 <div><%=links[i].url%></div>
                 <input name="id" value="<%=links[i]._id%>" hidden>
                 <button type="submit">Delete</button>
+                <a href="/edit/<%=links[i]._id%>">Edit</a>
             </form>
         </div>
     <%}%>
